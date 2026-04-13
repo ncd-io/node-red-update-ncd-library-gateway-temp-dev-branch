@@ -1,0 +1,586 @@
+[
+    {
+        "id": "cbea72ca2daed90c",
+        "type": "tab",
+        "label": "Update library",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0f1afafe5b9878c8",
+        "type": "group",
+        "z": "cbea72ca2daed90c",
+        "name": "FROM TEMP-DEV BRANCH",
+        "style": {
+            "stroke": "none",
+            "fill": "#bfdbef",
+            "label": true,
+            "fill-opacity": "0.33",
+            "label-position": "n"
+        },
+        "nodes": [
+            "523e19840d8e9d77",
+            "ae42c98f22f871c1",
+            "b0542c40268424d7",
+            "8a46d5bab60d4ca0",
+            "7e01aae877ab6955",
+            "45fca820150f05b3",
+            "b71bbf80824cd412",
+            "8997d1a581f7953c",
+            "76ac903bf47acadb",
+            "8622d2d0d161b7bb",
+            "fea6466a0df0e8fc",
+            "81ce5d3a248ada21",
+            "0c57f66baf5ed49d",
+            "1e7f26a78eded246",
+            "a9ecda9b14d192f1"
+        ],
+        "x": 34,
+        "y": 79,
+        "w": 1392,
+        "h": 462
+    },
+    {
+        "id": "40d4fec3c0b6199c",
+        "type": "group",
+        "z": "cbea72ca2daed90c",
+        "name": "FROM MAIN BRANCH",
+        "style": {
+            "stroke": "none",
+            "fill": "#ffbfbf",
+            "fill-opacity": "0.35",
+            "label": true,
+            "label-position": "n"
+        },
+        "nodes": [
+            "bd106d649e7fe250",
+            "9529898ab5422d66",
+            "84df986a69e8fed7",
+            "dbf8793a865d6971",
+            "a004df644a67d094",
+            "05d6b9119b632a24",
+            "a0b422a7a8eec55c",
+            "1c0cbbe096d17a9c",
+            "f200a4257b0d21a2",
+            "4b1ddfcaf4aae5d5",
+            "c23272692fac5a78",
+            "7bd3473e293923ee",
+            "4eac5bc3a61ef7f2",
+            "86a29bc9253b839c",
+            "84da186bb96e3b0a",
+            "d385cdaaaf48b03b"
+        ],
+        "x": 34,
+        "y": 719,
+        "w": 1392,
+        "h": 482
+    },
+    {
+        "id": "523e19840d8e9d77",
+        "type": "inject",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Enable",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "ae42c98f22f871c1"
+            ]
+        ]
+    },
+    {
+        "id": "ae42c98f22f871c1",
+        "type": "exec",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "command": "cd ~/.node-red ; npm install https://github.com/ncd-io/node-red-enterprise-sensors/tree/temp-dev",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "command to update temp-dev",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            [
+                "7e01aae877ab6955"
+            ],
+            [
+                "7e01aae877ab6955"
+            ],
+            [
+                "a9ecda9b14d192f1",
+                "7e01aae877ab6955"
+            ]
+        ]
+    },
+    {
+        "id": "b0542c40268424d7",
+        "type": "exec",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "command": "pm2 restart all",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "command to restart Node-RED",
+        "x": 530,
+        "y": 400,
+        "wires": [
+            [
+                "45fca820150f05b3"
+            ],
+            [
+                "45fca820150f05b3"
+            ],
+            [
+                "45fca820150f05b3"
+            ]
+        ]
+    },
+    {
+        "id": "8a46d5bab60d4ca0",
+        "type": "inject",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Enable",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "b0542c40268424d7"
+            ]
+        ]
+    },
+    {
+        "id": "7e01aae877ab6955",
+        "type": "debug",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "45fca820150f05b3",
+        "type": "debug",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Restart Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b71bbf80824cd412",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "👇🏼 Click the embedded left button to enable.",
+        "info": "",
+        "x": 230,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8997d1a581f7953c",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "👇🏼 Click the embedded left button to enable.",
+        "info": "",
+        "x": 230,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "76ac903bf47acadb",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Step 1",
+        "info": "",
+        "x": 110,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8622d2d0d161b7bb",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Step 3",
+        "info": "",
+        "x": 110,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fea6466a0df0e8fc",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Step 2",
+        "info": "",
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "81ce5d3a248ada21",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "👇🏼 Wait for the 'Completed' message, if 'error' check internet connection",
+        "info": "",
+        "x": 1150,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "0c57f66baf5ed49d",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Step 4 - Refresh the web browser page to complete the process.",
+        "info": "",
+        "x": 290,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "1e7f26a78eded246",
+        "type": "debug",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "Completed Debug",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 990,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a9ecda9b14d192f1",
+        "type": "function",
+        "z": "cbea72ca2daed90c",
+        "g": "0f1afafe5b9878c8",
+        "name": "function 1",
+        "func": "if(msg.payload.code == 0){\n    msg.payload = 'Completed';\n    return msg;\n}\nelse{\n    msg.payload = 'Error';\n    return msg; \n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 735,
+        "y": 220,
+        "wires": [
+            [
+                "1e7f26a78eded246"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "bd106d649e7fe250",
+        "type": "inject",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Enable",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 900,
+        "wires": [
+            [
+                "9529898ab5422d66"
+            ]
+        ]
+    },
+    {
+        "id": "9529898ab5422d66",
+        "type": "exec",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "command": "cd ~/.node-red ; npm install https://github.com/ncd-io/node-red-enterprise-sensors/tree/main",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "command to update main",
+        "x": 510,
+        "y": 900,
+        "wires": [
+            [
+                "84df986a69e8fed7"
+            ],
+            [
+                "84df986a69e8fed7"
+            ],
+            [
+                "1c0cbbe096d17a9c",
+                "84df986a69e8fed7"
+            ]
+        ]
+    },
+    {
+        "id": "84df986a69e8fed7",
+        "type": "debug",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Debug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "dbf8793a865d6971",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "👇🏼 Click the embedded left button to enable.",
+        "info": "",
+        "x": 230,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "a004df644a67d094",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Step 1",
+        "info": "",
+        "x": 110,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "05d6b9119b632a24",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "👇🏼 Wait for the 'Completed' message, if 'error' check internet connection",
+        "info": "",
+        "x": 1150,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "a0b422a7a8eec55c",
+        "type": "debug",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Completed Debug",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 990,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "1c0cbbe096d17a9c",
+        "type": "function",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "function 7",
+        "func": "if(msg.payload.code == 0){\n    msg.payload = 'Completed';\n    return msg;\n}\nelse{\n    msg.payload = 'Error';\n    return msg; \n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 735,
+        "y": 920,
+        "wires": [
+            [
+                "a0b422a7a8eec55c"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f200a4257b0d21a2",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Step 2",
+        "info": "",
+        "x": 950,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4b1ddfcaf4aae5d5",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Use this flow to return to the main branch (if necessary)",
+        "info": "",
+        "x": 260,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c23272692fac5a78",
+        "type": "exec",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "command": "pm2 restart all",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "command to restart Node-RED",
+        "x": 530,
+        "y": 1080,
+        "wires": [
+            [
+                "4eac5bc3a61ef7f2"
+            ],
+            [
+                "4eac5bc3a61ef7f2"
+            ],
+            [
+                "4eac5bc3a61ef7f2"
+            ]
+        ]
+    },
+    {
+        "id": "7bd3473e293923ee",
+        "type": "inject",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Enable",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 1080,
+        "wires": [
+            [
+                "c23272692fac5a78"
+            ]
+        ]
+    },
+    {
+        "id": "4eac5bc3a61ef7f2",
+        "type": "debug",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Restart Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "86a29bc9253b839c",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "👇🏼 Click the embedded left button to enable.",
+        "info": "",
+        "x": 230,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "84da186bb96e3b0a",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Step 3",
+        "info": "",
+        "x": 110,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "d385cdaaaf48b03b",
+        "type": "comment",
+        "z": "cbea72ca2daed90c",
+        "g": "40d4fec3c0b6199c",
+        "name": "Step 4 - Refresh the web browser page to complete the process.",
+        "info": "",
+        "x": 290,
+        "y": 1160,
+        "wires": []
+    }
+]
